@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation</title>
+</head>
+<body>
+  <h1>Welcome to the API</h1>
+  <button onclick="navigateTo('/createUser')">Create User</button>
+  <button onclick="navigateTo('/getUser')">Get User</button>
+
+  <script>
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+  </script>
+</body>
+</html>
