@@ -9,6 +9,9 @@ Installez les dépendances nécessaires en exécutant la commande suivante :
 
 2. Si nécessaire, ajustez les paramètres de configuration Redis dans le fichier redisService.js.
 
+3. Taper ```npx sequelize-cli db:migrate``` pour mettre la migration dans la base de donnée
+
+
 ## Utilisation
 Lancez le serveur Node.js en exécutant la commande suivante :
 ```node index.js```

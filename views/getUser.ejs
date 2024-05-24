@@ -3,30 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Users</title>
+  <title>Liste des users</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
     table {
-      border-collapse: collapse;
       width: 100%;
+      border-collapse: collapse;
     }
     th, td {
-      border: 1px solid #dddddd;
+      padding: 12px;
+      border: 1px solid #ddd;
       text-align: left;
-      padding: 8px;
     }
     th {
       background-color: #f2f2f2;
     }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .delete-button {
+      background-color: #f44336;
+      color: white;
+    }
+    .delete-button:hover {
+      background-color: #e53935;
+    }
+    .update-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .update-button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
-  <h1>All Users</h1>
+  <h1>Liste des users</h1>
   <table>
     <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
       </tr>
     </thead>
     <tbody>
@@ -35,8 +63,20 @@
           <td><%= user.id %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
+          <td>
+            <form action="/updateUser" method="get" style="display:inline;">
+              <input type="hidden" name="id" value="<%= user.id %>">
+              <button class="update-button" type="submit">Modifier</button>
+            </form>
+          </td>
+          <td>
+            <form action="/deleteUser" method="post" style="display:inline;">
+              <input type="hidden" name="id" value="<%= user.id %>">
+              <button class="delete-button" type="submit">Supprimer</button>
+            </form>
+          </td>
         </tr>
-      <% }); %>
+      <% }) %>
     </tbody>
   </table>
 </body>

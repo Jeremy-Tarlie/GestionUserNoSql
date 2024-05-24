@@ -19,4 +19,12 @@ const getUser = async (userId) => {
   return JSON.parse(user);
 };
 
-module.exports = { setUser, getUser, client };
+const deleteUser = async (userId) => {
+  await client.del(`user:${userId}`);
+}
+
+const updateUser = async (user) => {
+  await setUser(user);
+};
+
+module.exports = { setUser, getUser, deleteUser, updateUser, client };
