@@ -1,10 +1,10 @@
 const { createClient } = require('redis');
 
 const client = createClient({
-  password: '***',
+  password: 'zdJpqydDYaitGyHvA0nVs1mqm2sECjQU',
   socket: {
-    host: '***',
-    port: ***
+    host: 'redis-10528.c309.us-east-2-1.ec2.redns.redis-cloud.com',
+    port: 10528
   }
 });
 
@@ -24,7 +24,7 @@ const deleteUser = async (userId) => {
 }
 
 const updateUser = async (user) => {
-  await setUser(user);
+  await client.set(`user:${user.id}`, JSON.stringify(user));
 };
 
 module.exports = { setUser, getUser, deleteUser, updateUser, client };
